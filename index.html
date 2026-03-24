@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>David Mustac — BD & Sales Operations</title>
+<meta name="description" content="I build outbound pipelines from zero and run them with AI. $1M+ pipeline sourced.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --bg:#0a110c;
+  --surface:#0f1a12;
+  --card:#142118;
+  --border:rgba(255,255,255,0.06);
+  --text:#e8ece9;
+  --text-2:#8b968d;
+  --text-3:#556058;
+  --accent:#2ecc71;
+  --accent-dim:rgba(46,204,113,0.10);
+  --font:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:var(--accent);text-decoration:none;transition:opacity 0.2s;}
+a:hover{opacity:0.8;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:10;background:rgba(10,17,12,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0;}
+.nav-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;}
+.nav-name{font-size:14px;font-weight:600;letter-spacing:-0.3px;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{color:var(--text-2);font-size:13px;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-cta{background:var(--accent);color:#0a110c;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s;}
+.nav-cta:hover{background:#27ae60;color:#0a110c;opacity:1;}
+
+/* CONTAINER */
+.container{max-width:900px;margin:0 auto;padding:0 24px;}
+
+/* HERO */
+.hero{padding:80px 0 64px;border-bottom:1px solid var(--border);}
+.hero-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);margin-bottom:24px;}
+.hero-label{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
+.hero h1{font-size:44px;font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;}
+.hero h1 span{color:var(--accent);}
+.hero-sub{font-size:16px;color:var(--text-2);line-height:1.7;max-width:640px;margin-bottom:8px;}
+.hero-companies{font-size:13px;color:var(--text-3);margin-bottom:32px;}
+.hero-companies strong{color:var(--text-2);}
+.hero-stats{display:flex;gap:40px;margin-bottom:32px;}
+.stat{display:flex;flex-direction:column;}
+.stat-value{font-size:24px;font-weight:700;letter-spacing:-0.5px;}
+.stat-label{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
+.hero-ctas{display:flex;gap:12px;}
+.btn{padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;display:inline-block;}
+.btn-primary{background:var(--accent);color:#0a110c;font-weight:700;}
+.btn-primary:hover{background:#27ae60;}
+.btn-ghost{background:transparent;color:var(--text-2);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--text-3);color:var(--text);}
+
+/* SECTION */
+.section{padding:64px 0;border-bottom:1px solid var(--border);}
+.section-label{font-family:var(--mono);font-size:11px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.section-title{font-size:24px;font-weight:700;letter-spacing:-0.5px;margin-bottom:32px;}
+
+/* WHAT I DO */
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.skill-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;}
+.skill-num{font-family:var(--mono);font-size:11px;color:var(--text-3);margin-bottom:12px;}
+.skill-name{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.2px;}
+.skill-desc{font-size:13px;color:var(--text-2);line-height:1.6;}
+.skill-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.tool-tag{font-family:var(--mono);font-size:11px;color:var(--text-3);background:var(--surface);padding:3px 8px;border-radius:4px;}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;transition:border-color 0.2s;display:flex;flex-direction:column;}
+.project-card:hover{border-color:rgba(255,255,255,0.12);}
+.project-type{font-family:var(--mono);font-size:11px;color:var(--accent);margin-bottom:8px;}
+.project-name{font-size:16px;font-weight:700;margin-bottom:8px;letter-spacing:-0.2px;}
+.project-desc{font-size:13px;color:var(--text-2);line-height:1.6;flex:1;}
+.project-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;}
+.project-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--accent);margin-top:16px;}
+
+/* EXPERIENCE */
+.exp-list{display:flex;flex-direction:column;gap:0;}
+.exp-item{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--border);}
+.exp-item:last-child{border-bottom:none;}
+.exp-company{font-size:14px;font-weight:600;}
+.exp-date{font-size:12px;color:var(--text-3);margin-top:4px;font-family:var(--mono);}
+.exp-title{font-size:15px;font-weight:600;margin-bottom:8px;}
+.exp-desc{font-size:13px;color:var(--text-2);line-height:1.7;}
+.exp-highlight{color:var(--text);font-weight:500;}
+
+/* EDUCATION */
+.edu-row{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:16px 0;}
+.edu-school{font-size:14px;font-weight:600;}
+.edu-degree{font-size:13px;color:var(--text-2);}
+.edu-thesis{font-size:12px;color:var(--text-3);margin-top:4px;}
+
+/* FOOTER */
+.footer{padding:64px 0 48px;text-align:center;}
+.footer-cta{font-size:20px;font-weight:700;letter-spacing:-0.3px;margin-bottom:8px;}
+.footer-sub{font-size:14px;color:var(--text-2);margin-bottom:24px;}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:32px;}
+.footer-links a{font-size:13px;font-weight:500;color:var(--text-2);}
+.footer-links a:hover{color:var(--text);}
+.footer-note{font-size:12px;color:var(--text-3);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:32px;}
+  .hero-stats{gap:24px;}
+  .skills-grid{grid-template-columns:1fr;}
+  .projects-grid{grid-template-columns:1fr;}
+  .exp-item{grid-template-columns:1fr;gap:8px;}
+  .edu-row{grid-template-columns:1fr;gap:4px;}
+  .nav-links{gap:16px;}
+}
+@media(max-width:480px){
+  .hero{padding:48px 0 40px;}
+  .hero h1{font-size:28px;}
+  .hero-stats{flex-wrap:wrap;}
+  .stat-value{font-size:20px;}
+  .hero-photo{width:100px;height:100px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">David Mustac</div>
+    <div class="nav-links">
+      <a href="#work">What I do</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener" class="nav-cta">Book a call</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <img src="david.png" alt="David Mustac" class="hero-photo">
+    <div class="hero-label">BD & Sales Operations</div>
+    <h1>I build outbound pipelines from zero<br>and run them <span>with AI</span>.</h1>
+    <p class="hero-sub">Full-cycle sales infrastructure — from CRM architecture and lead scoring to automated outbound sequences and closed deals. I design the system, build the automation, and work the pipeline myself.</p>
+    <p class="hero-companies">Currently <strong>MasterBlox</strong> & <strong>Bitget</strong>. Previously <strong>Thespian</strong>, <strong>Resomnium</strong>, <strong>Seedify</strong>. MEng AI, University of Rijeka.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-value">$1M+</div><div class="stat-label">Pipeline sourced</div></div>
+      <div class="stat"><div class="stat-value">3</div><div class="stat-label">Companies built for</div></div>
+      <div class="stat"><div class="stat-value">300+</div><div class="stat-label">Projects evaluated</div></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener" class="btn btn-primary">Book a call</a>
+      <a href="#projects" class="btn btn-ghost">See my work</a>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section class="section" id="work">
+    <div class="section-label">What I do</div>
+    <div class="section-title">Three things, done properly.</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-num">01</div>
+        <div class="skill-name">Pipeline Architecture</div>
+        <div class="skill-desc">Design outbound systems from ICP definition to booked meetings. Multi-channel sequencing, lead scoring, automated qualification.</div>
+        <div class="skill-tools">
+          <span class="tool-tag">Apollo</span>
+          <span class="tool-tag">Sales Navigator</span>
+          <span class="tool-tag">Expandi</span>
+          <span class="tool-tag">Clay</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">02</div>
+        <div class="skill-name">Sales Operations</div>
+        <div class="skill-desc">CRM setup, process automation, sales funnel design. I don't hand over a CRM — I build the scoring, the workflows, and the reporting layer.</div>
+        <div class="skill-tools">
+          <span class="tool-tag">HubSpot</span>
+          <span class="tool-tag">n8n</span>
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Claude Code</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">03</div>
+        <div class="skill-name">Market Intelligence</div>
+        <div class="skill-desc">Research-backed GTM strategy. I build interactive dashboards proving market opportunities with real data — not slide decks with opinions.</div>
+        <div class="skill-tools">
+          <span class="tool-tag">Chart.js</span>
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">SQL</span>
+          <span class="tool-tag">Vercel</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-label">Portfolio</div>
+    <div class="section-title">Work that speaks for itself.</div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-type">Market Strategy</div>
+        <div class="project-name">Revolut Croatia Market Analysis</div>
+        <div class="project-desc">Mapped the revenue opportunity for 500K Croatian users. Three strategic pillars — tier upgrades, diaspora capture, digital subscription stack. Competitive fee analysis vs 5 banks. Product gap matrix. All real data, all sourced.</div>
+        <div class="project-tags">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Chart.js</span>
+          <span class="tool-tag">HNB data</span>
+          <span class="tool-tag">World Bank</span>
+        </div>
+        <a href="https://revolut-croatia-market-analysis.vercel.app" target="_blank" rel="noopener" class="project-link">Live dashboard &rarr;</a>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Exit Analysis</div>
+        <div class="project-name">Bolt Food Croatia Exit</div>
+        <div class="project-desc">Reverse-engineered why Bolt exited Croatian food delivery using Company Registry data. Revenue comparison, ecosystem analysis, 4 failure factors. Verified financials from FINA.</div>
+        <div class="project-tags">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Chart.js</span>
+          <span class="tool-tag">FINA data</span>
+        </div>
+        <a href="https://bolt-croatia-dashboard.vercel.app" target="_blank" rel="noopener" class="project-link">Live dashboard &rarr;</a>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Pricing Analysis</div>
+        <div class="project-name">Infobip CPaaS Pricing Model</div>
+        <div class="project-desc">SMS, WhatsApp, RCS, and Viber pricing across 13 markets. Benchmarked against Twilio. Channel migration simulator. Enterprise scenario modeling at 10M messages/month.</div>
+        <div class="project-tags">
+          <span class="tool-tag">Next.js</span>
+          <span class="tool-tag">Recharts</span>
+          <span class="tool-tag">Framer Motion</span>
+        </div>
+        <a href="https://github.com/dejvid981/infobip-cpaas-pricing-analysis" target="_blank" rel="noopener" class="project-link">View project &rarr;</a>
+      </div>
+      <div class="project-card">
+        <div class="project-type">Cost-Benefit Analysis</div>
+        <div class="project-name">Span D365 Migration ROI</div>
+        <div class="project-desc">Interactive cost-benefit analysis for D365 CRM migration. ROI modeling, break-even analysis, risk assessment. Built as a Business Analyst portfolio project.</div>
+        <div class="project-tags">
+          <span class="tool-tag">Python</span>
+          <span class="tool-tag">Dashboard</span>
+          <span class="tool-tag">CRM</span>
+        </div>
+        <a href="https://app-liart-chi.vercel.app" target="_blank" rel="noopener" class="project-link">Live dashboard &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="section" id="experience">
+    <div class="section-label">Experience</div>
+    <div class="section-title">Where I've built.</div>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div>
+          <div class="exp-company">MasterBlox</div>
+          <div class="exp-date">Feb 2025 — Present</div>
+        </div>
+        <div>
+          <div class="exp-title">Growth Specialist</div>
+          <div class="exp-desc">Built <span class="exp-highlight">AI-powered lead scoring system</span> using Claude Code — automated a 4-hour manual research process into 10-minute qualification batches. Built n8n automation workflows connecting lead research, scoring, and outreach to support deal flow.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-company">Thespian</div>
+          <div class="exp-date">Mar — Nov 2025</div>
+        </div>
+        <div>
+          <div class="exp-title">BD & Sales Operations</div>
+          <div class="exp-desc">Built <span class="exp-highlight">complete B2B sales process from zero</span> — integrated Sales Navigator, Expandi, and Apollo into a multi-channel outbound engine. CRM implementation, sales funnel design, cross-functional workflow optimization.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-company">Resomnium</div>
+          <div class="exp-date">Aug 2024 — Nov 2025</div>
+        </div>
+        <div>
+          <div class="exp-title">BD & Strategy Analyst</div>
+          <div class="exp-desc">Led business development and sales — <span class="exp-highlight">multi-channel outreach, discovery calls, deal closing</span>. AI adoption advisory for business processes. Market analysis, competitive positioning for token launches.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-company">Seedify</div>
+          <div class="exp-date">Nov 2025 — Mar 2026</div>
+        </div>
+        <div>
+          <div class="exp-title">Scout</div>
+          <div class="exp-desc">Diligence on <span class="exp-highlight">300+ early-stage projects</span>. Built outreach pipeline across Telegram, X, Discord. Ecosystem signal tracking and conviction-based prioritization.</div>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div>
+          <div class="exp-company">Bitget</div>
+          <div class="exp-date">May 2024 — Present</div>
+        </div>
+        <div>
+          <div class="exp-title">Balkan Growth Builder</div>
+          <div class="exp-desc">Regional user acquisition strategy. <span class="exp-highlight">5+ meetups, 40% attendee-to-user conversion</span>. Partnership building, affiliate campaigns. Token2049 Singapore, Solana Breakpoint Abu Dhabi.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:40px;">
+      <div class="section-label">Education</div>
+      <div class="edu-row">
+        <div class="edu-school">University of Rijeka</div>
+        <div>
+          <div class="edu-degree">MEng — AI / Automation Engineering (2021–2024)</div>
+          <div class="edu-thesis">Thesis: Detection of fraudulent blockchain accounts using ML algorithms</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="footer-cta">Want to chat?</div>
+    <div class="footer-sub">I'm open to BD, Sales Ops, and Growth roles.</div>
+    <div style="display:flex;justify-content:center;margin-bottom:24px;">
+      <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener" class="btn btn-primary">Book a call</a>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/dejvid981" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener">Calendly</a>
+    </div>
+    <div class="footer-note">Built with Python, Chart.js, and too much coffee.</div>
+  </section>
+
+</div>
+
+</body>
+</html>
