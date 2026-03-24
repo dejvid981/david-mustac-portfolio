@@ -13,7 +13,7 @@
   --bg:#0a110c;
   --surface:#0f1a12;
   --card:#142118;
-  --border:rgba(255,255,255,0.06);
+  --border:rgba(255,255,255,0.10);
   --text:#e8ece9;
   --text-2:#8b968d;
   --text-3:#556058;
@@ -35,7 +35,7 @@ a:hover{opacity:0.8;}
 .nav-links a{color:var(--text-2);font-size:13px;font-weight:500;transition:color 0.2s;}
 .nav-links a:hover{color:var(--text);}
 .nav-links a.active{color:var(--accent);}
-.nav-cta{background:var(--accent);color:#fff;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s;}
+.nav-cta{background:var(--accent);color:#fff;padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
 .nav-cta:hover{background:#27ae60;color:#fff;opacity:1;}
 
 /* CONTAINER */
@@ -52,8 +52,7 @@ a:hover{opacity:0.8;}
 .hero-companies strong{color:var(--text-2);}
 .hero-stats{display:flex;gap:40px;margin-bottom:32px;}
 .stat{display:flex;flex-direction:column;}
-.stat-value{font-size:24px;font-weight:700;letter-spacing:-0.5px;color:var(--text);}
-.stat:first-child .stat-value{font-size:32px;color:var(--accent);}
+.stat-value{font-size:28px;font-weight:700;letter-spacing:-0.5px;color:var(--accent);}
 .stat-label{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
 .hero-ctas{display:flex;gap:12px;}
 .btn{padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;display:inline-block;}
@@ -74,7 +73,7 @@ a:hover{opacity:0.8;}
 .skill-name{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.2px;}
 .skill-desc{font-size:14px;color:var(--text-2);line-height:1.6;}
 .skill-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
-.tool-tag{font-family:var(--mono);font-size:11px;color:var(--text-3);background:var(--surface);padding:3px 8px;border-radius:4px;}
+.tool-tag{font-family:var(--mono);font-size:11px;color:var(--text-2);background:var(--surface);padding:3px 8px;border-radius:4px;border:1px solid var(--border);}
 
 /* PROJECTS */
 .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
@@ -125,7 +124,7 @@ a:hover{opacity:0.8;}
   .hero{padding:48px 0 40px;}
   .hero h1{font-size:28px;}
   .hero-stats{flex-wrap:wrap;}
-  .stat-value{font-size:20px;}
+  .stat-value{font-size:22px;}
   .hero-photo{width:100px;height:100px;}
 }
 </style>
@@ -139,7 +138,7 @@ a:hover{opacity:0.8;}
       <a href="#work">What I do</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-      <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener" class="nav-cta">Get in touch</a>
+      <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener" class="nav-cta">Get in touch</a>
     </div>
   </div>
 </nav>
