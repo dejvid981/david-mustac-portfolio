@@ -51,7 +51,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
 
 /* HERO */
 .hero{padding:80px 0 64px;border-bottom:1px solid var(--border);background:radial-gradient(ellipse 80% 60% at 30% 40%,rgba(46,204,113,0.04) 0%,transparent 70%);}
-.hero-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--accent);margin-bottom:24px;}
+.hero-photo{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.18);margin-bottom:24px;}
 .hero-label{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px;}
 .hero h1{font-size:44px;font-weight:800;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;}
 .hero h1 span{color:var(--accent);}
@@ -60,8 +60,8 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
 .hero-companies strong{color:var(--text-2);}
 .hero-stats{display:flex;gap:40px;margin-bottom:32px;}
 .stat{display:flex;flex-direction:column;}
-.stat-value{font-size:28px;font-weight:700;letter-spacing:-0.5px;color:var(--accent);}
-.stat-label{font-size:12px;color:var(--text-3);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
+.stat-value{font-size:28px;font-weight:700;letter-spacing:-0.5px;color:var(--text);}
+.stat-label{font-size:12px;color:var(--text-2);text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
 .hero-ctas{display:flex;gap:12px;}
 .btn{padding:10px 24px;border-radius:8px;font-size:14px;font-weight:600;font-family:var(--font);cursor:pointer;border:none;transition:all 0.2s;text-decoration:none;display:inline-block;}
 .btn-primary{background:var(--accent);color:#0a110c;font-weight:700;}
@@ -71,7 +71,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
 
 /* SECTION */
 .section{padding:64px 0;border-bottom:1px solid var(--border);}
-.section-label{font-family:var(--mono);font-size:11px;color:var(--text-3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;}
+.section-label{font-family:var(--mono);font-size:13px;color:var(--text-2);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:inline-block;padding-bottom:6px;border-bottom:2px solid var(--accent);}
 .section-title{font-size:24px;font-weight:700;letter-spacing:-0.5px;margin-bottom:32px;}
 
 /* WHAT I DO */
@@ -98,7 +98,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
 .exp-item{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:24px 0;border-bottom:1px solid var(--border);}
 .exp-item:last-child{border-bottom:none;}
 .exp-company{font-size:14px;font-weight:600;}
-.exp-date{font-size:12px;color:var(--text-3);margin-top:4px;font-family:var(--mono);}
+.exp-date{font-size:12px;color:var(--text-2);margin-top:4px;font-family:var(--mono);}
 .exp-title{font-size:15px;font-weight:600;margin-bottom:8px;}
 .exp-desc{font-size:14px;color:var(--text-2);line-height:1.7;}
 .exp-highlight{color:var(--text);font-weight:500;}
@@ -127,11 +127,13 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
   .exp-item{grid-template-columns:1fr;gap:8px;}
   .edu-row{grid-template-columns:1fr;gap:4px;}
   .nav-links{gap:16px;}
+  .nav-cta{padding:11px 22px;min-height:44px;display:inline-flex;align-items:center;}
+  .btn{padding:12px 24px;min-height:44px;}
 }
 @media(max-width:480px){
   .hero{padding:48px 0 40px;}
   .hero h1{font-size:28px;}
-  .hero-stats{flex-wrap:wrap;}
+  .hero-stats{flex-direction:column;gap:18px;}
   .stat-value{font-size:22px;}
   .hero-photo{width:100px;height:100px;}
 }
@@ -162,8 +164,8 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
     <p class="hero-companies"><strong>MEng in AI/Automation Engineering.</strong> Croatian native, fluent English, basic German.</p>
     <div class="hero-stats">
       <div class="stat"><div class="stat-value">2</div><div class="stat-label">Sales Processes<br>Built from Zero</div></div>
-      <div class="stat"><div class="stat-value">MEng</div><div class="stat-label">AI & Automation<br>Engineering</div></div>
       <div class="stat"><div class="stat-value">300+</div><div class="stat-label">Projects Evaluated<br>at Seedify</div></div>
+      <div class="stat"><div class="stat-value">20+</div><div class="stat-label">Clients Served<br>at MasterBlox</div></div>
     </div>
     <div class="hero-ctas">
       <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener" class="btn btn-primary" data-event="Get In Touch" data-prop-location="hero">Get in touch</a>
@@ -223,7 +225,6 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         <div class="project-name">D365 Migration — Cost-Benefit</div>
         <div class="project-desc">€179K. 45 users. 38.3% projected ROI. Break-even and risk modeling, stakeholder-ready in one click.</div>
         <div class="project-tags">
-          <span class="tool-tag">Python</span>
           <span class="tool-tag">Financial Modeling</span>
           <span class="tool-tag">D365</span>
         </div>
@@ -234,9 +235,8 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         <div class="project-name">CPaaS Pricing — Infobip vs Twilio</div>
         <div class="project-desc">13 markets. 4 channels. 10M messages/month. Plug in volumes and watch the cheapest channel mix recalculate live.</div>
         <div class="project-tags">
-          <span class="tool-tag">Next.js</span>
-          <span class="tool-tag">Recharts</span>
           <span class="tool-tag">Competitive Analysis</span>
+          <span class="tool-tag">Next.js</span>
         </div>
         <a href="https://infobip-cpaas-pricing.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="CPaaS Pricing">Open report &rarr;</a>
       </div>
@@ -245,8 +245,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         <div class="project-name">Revolut Croatia — Opportunity Map</div>
         <div class="project-desc">500K Revolut users in Croatia. 5 banks benchmarked. Three growth pillars. All data sourced from HNB.</div>
         <div class="project-tags">
-          <span class="tool-tag">Python</span>
-          <span class="tool-tag">Chart.js</span>
+          <span class="tool-tag">Market Sizing</span>
           <span class="tool-tag">HNB data</span>
         </div>
         <a href="https://revolut-croatia-market-analysis.vercel.app" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Revolut Croatia">Open report &rarr;</a>
@@ -256,8 +255,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         <div class="project-name">Why Bolt Food Left Croatia</div>
         <div class="project-desc">Reverse-engineered from FINA filings. Four failure factors — none of them obvious from the press release.</div>
         <div class="project-tags">
-          <span class="tool-tag">Python</span>
-          <span class="tool-tag">Chart.js</span>
+          <span class="tool-tag">Competitive Intel</span>
           <span class="tool-tag">FINA data</span>
         </div>
         <a href="https://bolt-croatia-dashboard.vercel.app" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Bolt Food Croatia">Open report &rarr;</a>
@@ -269,28 +267,25 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         <div class="project-tags">
           <span class="tool-tag">Unit Economics</span>
           <span class="tool-tag">Sales Ops</span>
-          <span class="tool-tag">Cost Modeling</span>
         </div>
         <a href="https://cost-per-meeting-calculator.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="SDR Cost Calculator">Open calculator &rarr;</a>
       </div>
-      <div class="project-card" style="grid-column:1/-1;">
+      <div class="project-card">
         <div class="project-type">Industry Analysis</div>
         <div class="project-name">Aircash & Kekspay — Croatian Payments</div>
         <div class="project-desc">Two Croatian payment platforms — business models, fees, market dynamics. The LinkedIn version pulled engagement from senior fintech execs at Aircash and Bankart.</div>
         <div class="project-tags">
           <span class="tool-tag">Market Research</span>
           <span class="tool-tag">Payments</span>
-          <span class="tool-tag">Interactive</span>
         </div>
         <a href="https://croatian-payments.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Croatian Payments">Open dashboard &rarr;</a>
       </div>
       <div class="project-card" style="grid-column:1/-1;">
-        <div class="project-type">Industry Mapping</div>
+        <div class="project-type">Industry Mapping · Featured</div>
         <div class="project-name">Croatian B2B SaaS — 23 Companies Mapped</div>
         <div class="project-desc">Infobip is €1.85B. Nobody else is over €100M. Three of the top four moved HQ abroad. Sortable, sourced.</div>
         <div class="project-tags">
           <span class="tool-tag">Market Research</span>
-          <span class="tool-tag">Croatian SaaS</span>
           <span class="tool-tag">Vertical Analysis</span>
         </div>
         <a href="https://croatian-saas.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Croatian SaaS">Open dashboard &rarr;</a>
