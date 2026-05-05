@@ -220,7 +220,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
     <div class="section-label">Analytical Projects</div>
     <div class="section-title">Data-driven work samples</div>
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card" data-card-view="D365 Migration">
         <div class="project-type">CRM Migration</div>
         <div class="project-name">D365 Migration — Cost-Benefit</div>
         <div class="project-desc">€179K. 45 users. 38.3% projected ROI. Break-even and risk modeling, stakeholder-ready in one click.</div>
@@ -230,7 +230,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         </div>
         <a href="https://app-liart-chi.vercel.app" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="D365 Migration">Open report &rarr;</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-card-view="CPaaS Pricing">
         <div class="project-type">Enterprise Pricing</div>
         <div class="project-name">CPaaS Pricing — Infobip vs Twilio</div>
         <div class="project-desc">13 markets. 4 channels. 10M messages/month. Plug in volumes and watch the cheapest channel mix recalculate live.</div>
@@ -240,7 +240,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         </div>
         <a href="https://infobip-cpaas-pricing.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="CPaaS Pricing">Open report &rarr;</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-card-view="Revolut Croatia">
         <div class="project-type">Market Sizing</div>
         <div class="project-name">Revolut Croatia — Opportunity Map</div>
         <div class="project-desc">500K Revolut users in Croatia. 5 banks benchmarked. Three growth pillars. All data sourced from HNB.</div>
@@ -250,7 +250,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         </div>
         <a href="https://revolut-croatia-market-analysis.vercel.app" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Revolut Croatia">Open report &rarr;</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-card-view="Bolt Food Croatia">
         <div class="project-type">Market Exit Analysis</div>
         <div class="project-name">Why Bolt Food Left Croatia</div>
         <div class="project-desc">Reverse-engineered from FINA filings. Four failure factors — none of them obvious from the press release.</div>
@@ -260,7 +260,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         </div>
         <a href="https://bolt-croatia-dashboard.vercel.app" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Bolt Food Croatia">Open report &rarr;</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-card-view="SDR Cost Calculator">
         <div class="project-type">Sales Unit Economics</div>
         <div class="project-name">CEE SDR Cost-Per-Meeting</div>
         <div class="project-desc">€1,800/mo SDR looks cheap. Real cost per held meeting is closer to €350. Plug in your numbers, see yours.</div>
@@ -270,7 +270,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         </div>
         <a href="https://cost-per-meeting-calculator.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="SDR Cost Calculator">Open calculator &rarr;</a>
       </div>
-      <div class="project-card">
+      <div class="project-card" data-card-view="Croatian Payments">
         <div class="project-type">Industry Analysis</div>
         <div class="project-name">Aircash & Kekspay — Croatian Payments</div>
         <div class="project-desc">Two Croatian payment platforms — business models, fees, market dynamics. The LinkedIn version pulled engagement from senior fintech execs at Aircash and Bankart.</div>
@@ -280,7 +280,7 @@ a.nav-cta:hover{background:#27ae60;color:#000;opacity:1;}
         </div>
         <a href="https://croatian-payments.vercel.app/" target="_blank" rel="noopener" class="project-link" data-event="Project Click" data-prop-name="Croatian Payments">Open dashboard &rarr;</a>
       </div>
-      <div class="project-card" style="grid-column:1/-1;">
+      <div class="project-card" style="grid-column:1/-1;" data-card-view="Croatian SaaS">
         <div class="project-type">Industry Mapping · Featured</div>
         <div class="project-name">Croatian B2B SaaS — 23 Companies Mapped</div>
         <div class="project-desc">Infobip is €1.85B. Nobody else is over €100M. Three of the top four moved HQ abroad. Sortable, sourced.</div>
@@ -398,6 +398,18 @@ const obs=new IntersectionObserver(entries=>{
   });
 },{rootMargin:'-20% 0px -60% 0px'});
 sections.forEach(s=>obs.observe(s));
+
+// Plausible card-view tracking: fires "Project Card View" once per page-load when a project card
+// crosses 50% visibility. Pairs with Project Click for click-through-rate per project.
+const cardObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting&&typeof plausible==='function'){
+      plausible('Project Card View',{props:{name:e.target.dataset.cardView}});
+      cardObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.5});
+document.querySelectorAll('[data-card-view]').forEach(c=>cardObs.observe(c));
 
 // Plausible custom events: fires plausible(eventName, {props}) when a tagged element is clicked.
 // Add data-event="Event Name" + optional data-prop-* attributes to any link/button to track it.
